@@ -50,7 +50,7 @@ export default function GroupInvitePage() {
     if (currentGroup) {
       intervalId = setInterval(() => {
         refreshGroup()
-      }, 10000) // Check every 10 seconds
+      }, 1000) // Check every 1 seconds
     }
 
     return () => {
@@ -96,6 +96,8 @@ export default function GroupInvitePage() {
       </div>
     )
   }
+  console.log(!currentGroup)
+  console.log(!currentUser)
 
   if (!currentGroup || !currentUser) {
     return (
@@ -107,7 +109,6 @@ export default function GroupInvitePage() {
       </div>
     )
   }
-
   const copyGroupCode = async () => {
     try {
       await navigator.clipboard.writeText(groupCode)

@@ -9,11 +9,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useGroup } from "@/contexts/group-context"
 import { useToast } from "@/hooks/use-toast"
 import { ArrowLeft, Loader2 } from "lucide-react"
+import { getAllGroups } from "../actions"
 
 export default function JoinGroupPage() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const { joinGroup, getAllGroups } = useGroup()
+  const { joinGroup } = useGroup()
   const { toast } = useToast()
 
   const [groupCode, setGroupCode] = useState("")
@@ -30,9 +31,12 @@ export default function JoinGroupPage() {
     }
 
     // Get all available groups
-    const groups = getAllGroups()
-    console.log("JoinGroupPage: Available groups:", groups)
-    setAvailableGroups(groups)
+    const fetchGroups = async () => {
+      const groups = await getAllGroups()
+      console.log("JoinGroupPage: Available groups:", groups)
+      setAvailableGroups(groups)
+    }
+    fetchGroups()
 
     setLoading(false)
   }, [searchParams, getAllGroups])

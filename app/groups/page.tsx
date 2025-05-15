@@ -7,13 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { useGroup } from "@/contexts/group-context"
+import { Participant, useGroup } from "@/contexts/group-context"
 import { useToast } from "@/hooks/use-toast"
 import { Users, UserPlus, ArrowLeft, Loader2 } from "lucide-react"
+import { createGroup, getAllGroups } from "./actions"
 
 export default function GroupsPage() {
   const router = useRouter()
-  const { createAndJoinGroup, joinGroup, getAllGroups, leaveGroup, currentGroup } = useGroup()
+  const { joinGroup, currentGroup,setCurrentUser, setCurrentGroup } = useGroup()
   const { toast } = useToast()
 
   const [newGroupName, setNewGroupName] = useState("")
@@ -21,12 +22,17 @@ export default function GroupsPage() {
   const [userName, setUserName] = useState("")
   const [isCreating, setIsCreating] = useState(false)
   const [isJoining, setIsJoining] = useState(false)
+  const [groups, setGroups] = useState([])
   const [groupsLoaded, setGroupsLoaded] = useState(false)
 
   // Check if groups are loaded and ensure user isn't in a group already
   useEffect(() => {
-    const groups = getAllGroups()
-    console.log("GroupsPage: Initial groups loaded:", groups)
+    const fetchGroups = async () => {
+      const groups = await getAllGroups()
+      setGroups(groups)
+      console.log("GroupsPage: Fetched groups:", groups)
+    }
+    fetchGroups()
 
     // If the user is already in a group, redirect to the invite page
     if (currentGroup) {
@@ -37,10 +43,6 @@ export default function GroupsPage() {
   }, [getAllGroups, currentGroup, router])
 
   // Make sure to leave any existing group when visiting this page
-  useEffect(() => {
-    // Leave any existing group when visiting the groups page
-    leaveGroup()
-  }, [leaveGroup])
 
   const handleCreateGroup = async () => {
     if (!newGroupName.trim() || !userName.trim()) {
@@ -57,10 +59,16 @@ export default function GroupsPage() {
 
     try {
       // Use the atomic operation to create and join in one step
-      const groupId = createAndJoinGroup(newGroupName, userName)
+      const userId = crypto.randomUUID()
+      const group = (await createGroup(newGroupName, userId))
+      const user:Participant = {id: userId, name: userName, rankings: [],status:"waiting",timestamp: Date.now()}
+      setCurrentGroup(group)
+      setCurrentUser(user)
+      
+      // const groupId = createAndJoinGroup(newGroupName, userName)
 
-      if (groupId) {
-        console.log("GroupsPage: Successfully created and joined group:", groupId)
+      if (group) {
+        console.log("GroupsPage: Successfully created and joined group:", group)
         toast({
           title: "Group created",
           description: `Group "${newGroupName}" created successfully!`,
@@ -107,7 +115,7 @@ export default function GroupsPage() {
 
     try {
       // Find the full group ID that starts with the provided code
-      const groups = getAllGroups()
+      const groups = await getAllGroups()
       console.log("GroupsPage: Available groups for joining:", groups)
 
       const matchingGroup = groups.find((g) => g.id.startsWith(joinGroupId))
@@ -283,6 +291,7 @@ export default function GroupsPage() {
             </Card>
           </TabsContent>
         </Tabs>
+        {groups.length}
       </div>
     </div>
   )
