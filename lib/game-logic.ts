@@ -1,49 +1,92 @@
-/**
- * Generates all possible pairs of indices for comparison
- * @param count The number of items to generate pairs for
- * @returns Array of pairs as tuples [indexA, indexB]
- */
-export function generatePairs(count: number): Array<[number, number]> {
-  const pairs: Array<[number, number]> = []
+// Track transitive dominance using adjacency matrix
+let dominance: boolean[][] = []
+let countryCount = 0
+let remainingPairs: Array<[number, number]> = []
 
-  // Generate all possible pairs
-  for (let i = 0; i < count; i++) {
-    for (let j = i + 1; j < count; j++) {
-      pairs.push([i, j])
-    }
-  }
+export function initializeSort(count: number): [number, number] {
+countryCount = count
+dominance = Array(count).fill(null).map(() => Array(count).fill(false))
 
-  // Shuffle the pairs
-  return shuffleArray(pairs)
+// Initial all possible unique pairs
+remainingPairs = []
+for (let i = 0; i < count; i++) {
+for (let j = i + 1; j < count; j++) {
+remainingPairs.push([i, j])
+}
 }
 
-/**
- * Shuffles an array using the Fisher-Yates algorithm
- */
+remainingPairs = shuffleArray(remainingPairs)
+
+return getNextPair()
+}
+
+export function recordComparison(winner: number, loser: number): [number, number] | null {
+if (dominance[winner][loser]) return getNextPair()
+
+// Set direct dominance
+dominance[winner][loser] = true
+
+// Floyd-Warshall style transitive closure
+for (let i = 0; i < countryCount; i++) {
+for (let j = 0; j < countryCount; j++) {
+if (dominance[i][winner] && dominance[loser][j]) {
+dominance[i][j] = true
+}
+}
+}
+
+// Update transitivity directly for current winner
+for (let i = 0; i < countryCount; i++) {
+if (dominance[i][winner]) {
+dominance[i][loser] = true
+}
+if (dominance[loser][i]) {
+dominance[winner][i] = true
+}
+}
+
+return getNextPair()
+}
+
+function getNextPair(): [number, number] | null {
+while (remainingPairs.length > 0) {
+const [a, b] = remainingPairs.shift()!
+if (!dominance[a][b] && !dominance[b][a]) {
+return [a, b]
+}
+}
+return null
+}
+
+export function getCurrentRanking(): number[] {
+const scores: [number, number][] = []
+for (let i = 0; i < countryCount; i++) {
+const wins = dominance[i].filter((v) => v).length
+scores.push([i, wins])
+}
+scores.sort((a, b) => b[1] - a[1])
+return scores.map(([index]) => index)
+}
+
+export function getCountryRank(index: number): number | null {
+const ranking = getCurrentRanking()
+const pos = ranking.indexOf(index)
+return pos >= 0 ? pos + 1 : null
+}
+
+export function getTotalComparisons(): number {
+return (countryCount * (countryCount - 1)) / 2
+}
+
+export function getRemainingComparisons(): number {
+return remainingPairs.filter(([a, b]) => !dominance[a][b] && !dominance[b][a]).length
+}
+
 function shuffleArray<T>(array: T[]): T[] {
-  const newArray = [...array]
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
-  }
-  return newArray
+const newArray = [...array]
+for (let i = newArray.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1))
+;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
 }
-
-/**
- * Calculates the final rankings based on vote counts
- * @param votes Record of country index to vote count
- * @returns Array of country indices sorted by rank (highest votes first)
- */
-export function calculateRankings(votes: Record<number, number>): number[] {
-  // Convert votes object to array of [countryIndex, voteCount] pairs
-  const voteEntries = Object.entries(votes).map(([countryIndex, voteCount]) => [
-    Number.parseInt(countryIndex),
-    voteCount,
-  ])
-
-  // Sort by vote count (descending)
-  voteEntries.sort((a, b) => b[1] - a[1])
-
-  // Return just the country indices in ranked order
-  return voteEntries.map((entry) => entry[0])
+return newArray
 }

@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Participant, useGroup } from "@/contexts/group-context"
+import { type Participant, useGroup } from "@/contexts/group-context"
 import { useToast } from "@/hooks/use-toast"
 import { Users, UserPlus, ArrowLeft, Loader2 } from "lucide-react"
 import { createGroup, getAllGroups } from "./actions"
 
 export default function GroupsPage() {
   const router = useRouter()
-  const { joinGroup, currentGroup,setCurrentUser, setCurrentGroup } = useGroup()
+  const { joinGroup, currentGroup, setCurrentUser, setCurrentGroup } = useGroup()
   const { toast } = useToast()
 
   const [newGroupName, setNewGroupName] = useState("")
@@ -60,11 +60,11 @@ export default function GroupsPage() {
     try {
       // Use the atomic operation to create and join in one step
       const userId = crypto.randomUUID()
-      const group = (await createGroup(newGroupName, userId))
-      const user:Participant = {id: userId, name: userName, rankings: [],status:"waiting",timestamp: Date.now()}
+      const group = await createGroup(newGroupName, userId)
+      const user: Participant = { id: userId, name: userName, rankings: [], status: "waiting", timestamp: Date.now() }
       setCurrentGroup(group)
       setCurrentUser(user)
-      
+
       // const groupId = createAndJoinGroup(newGroupName, userName)
 
       if (group) {

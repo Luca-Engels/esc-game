@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster"
 import { GroupProvider } from "@/contexts/group-context"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Eurovision Ranking Game",
@@ -18,14 +20,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <GroupProvider>
-          {children}
-          <Toaster />
-          <SpeedInsights />
-          <Analytics />
-        </GroupProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <GroupProvider>
+            <Suspense>{children}</Suspense>
+            <Toaster />
+            <SpeedInsights />
+            <Analytics />
+          </GroupProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

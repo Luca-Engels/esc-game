@@ -1,7 +1,7 @@
 "use client"
 
 import { getAllGroups, updateGroup } from "@/app/groups/actions"
-import { createContext, useContext, useState, useEffect, useRef, type ReactNode } from "react"
+import { createContext, useContext, useState, type ReactNode } from "react"
 import { v4 as uuidv4 } from "uuid"
 
 // Types for our group functionality
@@ -54,7 +54,6 @@ const safelyParseJSON = (json: string | null, fallback: any = null) => {
   }
 }
 
-
 // Create a shared storage key for groups that will be consistent across all instances
 
 export function GroupProvider({ children }: { children: ReactNode }) {
@@ -81,7 +80,7 @@ export function GroupProvider({ children }: { children: ReactNode }) {
     setCurrentUser({ id: userId, name: userName })
     localStorage.setItem("currentGroup", JSON.stringify(group))
     localStorage.setItem("currentUser", JSON.stringify(newParticipant))
-    updateGroup( group)
+    updateGroup(group)
     return true
   }
   const leaveGroup = () => {
@@ -100,7 +99,7 @@ export function GroupProvider({ children }: { children: ReactNode }) {
     if (!group) return
     group.participants = group.participants.filter((p) => p.id !== userId)
     setCurrentGroup(group)
-    updateGroup( group)
+    updateGroup(group)
   }
   const getGroupById = async (groupId: string) => {
     if (!groupId) return null
@@ -117,7 +116,7 @@ export function GroupProvider({ children }: { children: ReactNode }) {
     if (participantIndex === -1) return
     group.participants[participantIndex].rankings = rankings
     setCurrentGroup(group)
-    updateGroup( group)
+    updateGroup(group)
   }
   const startGroupGame = () => {
     if (!currentGroup) return false
@@ -134,7 +133,7 @@ export function GroupProvider({ children }: { children: ReactNode }) {
     if (participantIndex === -1) return false
     group.participants[participantIndex].status = status
     setCurrentGroup(group)
-    updateGroup( group)
+    updateGroup(group)
     return true
   }
   const isHost = () => {
@@ -149,8 +148,6 @@ export function GroupProvider({ children }: { children: ReactNode }) {
     setCurrentGroup(group)
     setLastRefresh(Date.now())
   }
-
-
 
   const contextValue = {
     currentGroup,
