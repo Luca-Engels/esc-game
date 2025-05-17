@@ -76,7 +76,7 @@ export const countries = [
     name: "Island",
     artist: "VÆB",
     song: "Róa",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-IRELAND-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ICELAND-BLACK.png",
     audioFile: "/songs/island.mp3",
   },
   {
