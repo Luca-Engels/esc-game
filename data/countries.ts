@@ -4,7 +4,7 @@ export const countries = [
     name: "Norwegen",
     artist: "Kyle Alessandro",
     song: "Lighter",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-norway-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-NORWAY-BLACK.png",
     audioFile: "/songs/norwegen.mp3",
   },
   {
@@ -12,7 +12,7 @@ export const countries = [
     name: "Luxemburg",
     artist: "Laura Thorn",
     song: "La poupée monte le son",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-luxembourg-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-LUXEMBOURG-BLACK.png",
     audioFile: "/songs/luxemburg.mp3",
   },
   {
@@ -20,7 +20,7 @@ export const countries = [
     name: "Estland",
     artist: "Tommy Cash",
     song: "Espresso Macchiato",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-estonia-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ESTONIA-BLACK.png",
     audioFile: "/songs/estland.mp3",
   },
   {
@@ -28,7 +28,7 @@ export const countries = [
     name: "Israel",
     artist: "Yuval Raphael",
     song: "New Day Will Rise",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-israel-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ISRAEL-BLACK.png",
     audioFile: "/songs/israel.mp3",
   },
   {
@@ -36,7 +36,7 @@ export const countries = [
     name: "Litauen",
     artist: "Katarsis",
     song: "Tavo Akys",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-lithuania-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-LITHUANIA-BLACK.png",
     audioFile: "/songs/litauen.mp3",
   },
   {
@@ -44,7 +44,7 @@ export const countries = [
     name: "Spanien",
     artist: "Melody",
     song: "Esa diva",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-spain-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-SPAIN-BLACK.png",
     audioFile: "/songs/spanien.mp3",
   },
   {
@@ -52,7 +52,7 @@ export const countries = [
     name: "Ukraine",
     artist: "Ziferblat",
     song: "Bird Of Pray",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ukraine-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-UKRAINE-BLACK.png",
     audioFile: "/songs/ukraine.mp3",
   },
   {
@@ -60,7 +60,7 @@ export const countries = [
     name: "Großbritannien",
     artist: "Remember Monday",
     song: "What The Hell Just Happened?",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-unitedkingdom-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-UNITEDKINGDOM-BLACK.png",
     audioFile: "/songs/grossbritannien.mp3",
   },
   {
@@ -68,7 +68,7 @@ export const countries = [
     name: "Österreich",
     artist: "JJ",
     song: "Wasted Love",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-austria-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-AUSTRIA-BLACK.png",
     audioFile: "/songs/oesterreich.mp3",
   },
   {
@@ -76,7 +76,7 @@ export const countries = [
     name: "Island",
     artist: "VÆB",
     song: "Róa",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ireland-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-IRELAND-BLACK.png",
     audioFile: "/songs/island.mp3",
   },
   {
@@ -84,7 +84,7 @@ export const countries = [
     name: "Lettland",
     artist: "Tautumeitas",
     song: "Bur man laimi",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-Latvia-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-LATVIA-BLACK.png",
     audioFile: "/songs/lettland.mp3",
   },
   {
@@ -92,7 +92,7 @@ export const countries = [
     name: "Niederlande",
     artist: "Claude",
     song: "C'est la vie",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-netherlands-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-NETHERLANDS-BLACK.png",
     audioFile: "/songs/niederlande.mp3",
   },
   {
@@ -100,7 +100,7 @@ export const countries = [
     name: "Finnland",
     artist: "Erika Vikman",
     song: "Ich komme",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-finland-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-FINLAND-BLACK.png",
     audioFile: "/songs/finnland.mp3",
   },
   {
@@ -108,7 +108,7 @@ export const countries = [
     name: "Italien",
     artist: "Lucio Corsi",
     song: "Volevo essere un duro",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-italy-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ITALY-BLACK.png",
     audioFile: "/songs/italien.mp3",
   },
   {
@@ -116,7 +116,7 @@ export const countries = [
     name: "Polen",
     artist: "Justyna Steczkowska",
     song: "Gaja",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-poland-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-POLAND-BLACK.png",
     audioFile: "/songs/polen.mp3",
   },
   {
@@ -124,7 +124,7 @@ export const countries = [
     name: "Deutschland",
     artist: "Abor & Tynna",
     song: "Baller",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-germany-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-GERMANY-BLACK.png",
     audioFile: "/songs/deutschland.mp3",
   },
   {
@@ -132,7 +132,7 @@ export const countries = [
     name: "Griechenland",
     artist: "Klavdia",
     song: "Asteromata",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-greece-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-GREECE-BLACK.png",
     audioFile: "/songs/griechenland.mp3",
   },
   {
@@ -140,7 +140,7 @@ export const countries = [
     name: "Armenien",
     artist: "Parg",
     song: "Survivor",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-Armenia-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ARMENIA-BLACK.png",
     audioFile: "/songs/armenien.mp3",
   },
   {
@@ -148,7 +148,7 @@ export const countries = [
     name: "Schweiz",
     artist: "Zoë Më",
     song: "Voyage",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-switzerland-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-SWITZERLAND-BLACK.png",
     audioFile: "/songs/schweiz.mp3",
   },
   {
@@ -156,7 +156,7 @@ export const countries = [
     name: "Malta",
     artist: "Miriana Conte",
     song: "Serving",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-malta-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-MALTA-BLACK.png",
     audioFile: "/songs/malta.mp3",
   },
   {
@@ -164,7 +164,7 @@ export const countries = [
     name: "Portugal",
     artist: "NAPA",
     song: "Deslocado",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-portugal-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-PORTUGAL-BLACK.png",
     audioFile: "/songs/portugal.mp3",
   },
   {
@@ -172,7 +172,7 @@ export const countries = [
     name: "Dänemark",
     artist: "Sissal",
     song: "Hallucination",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-Denmark-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-DENMARK-BLACK.png",
     audioFile: "/songs/daenemark.mp3",
   },
   {
@@ -180,7 +180,7 @@ export const countries = [
     name: "Schweden",
     artist: "KAJ",
     song: "Bara bada bastu",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-Sweden-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-SWEDEN-BLACK.png",
     audioFile: "/songs/schweden.mp3",
   },
   {
@@ -188,7 +188,7 @@ export const countries = [
     name: "Frankreich",
     artist: "Louane",
     song: "Maman",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-france-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-FRANCE-BLACK.png",
     audioFile: "/songs/frankreich.mp3",
   },
   {
@@ -196,7 +196,7 @@ export const countries = [
     name: "San Marino",
     artist: "Gabry Ponte",
     song: "Tutta l'Italia",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-sanmarino-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-SANMARINO-BLACK.png",
     audioFile: "/songs/san_marino.mp3",
   },
   {
@@ -204,7 +204,7 @@ export const countries = [
     name: "Albanien",
     artist: "Shkodra Elektronike",
     song: "Zjerm",
-    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-Albania-BLACK.png",
+    flag: "https://fuvwcxwcxzwovnq4.public.blob.vercel-storage.com/esc/pictures/ESC-HEART-ALBANIA-BLACK.png",
     audioFile: "/songs/albanien.mp3",
   },
-]
+];
