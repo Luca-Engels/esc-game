@@ -10,7 +10,7 @@ export type Participant = {
   name: string
   rankings: number[]
   timestamp: number
-  status: "waiting" | "ready" | "completed"
+  status: "waiting" | "ranking" | "completed"
 }
 
 export type Group = {
@@ -36,7 +36,7 @@ type GroupContextType = {
   getGroupById: (groupId: string) => Group | null
   createAndJoinGroup: (groupName: string, userName: string) => string | null
   startGroupGame: () => boolean
-  updateParticipantStatus: (status: "waiting" | "ready" | "completed") => boolean
+  updateParticipantStatus: (status: "waiting" | "ranking" | "completed") => boolean
   isHost: () => boolean
   refreshGroup: () => void
 }
@@ -127,7 +127,7 @@ export function GroupProvider({ children }: { children: ReactNode }) {
     updateGroup(group)
     return true
   }
-  const updateParticipantStatus = (status: "waiting" | "ready" | "completed") => {
+  const updateParticipantStatus = (status: "waiting" | "ranking" | "completed") => {
     if (!currentGroup || !currentUser) return false
     const group = { ...currentGroup }
     const participantIndex = group.participants.findIndex((p) => p.id === currentUser.id)

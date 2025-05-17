@@ -50,7 +50,7 @@ export default function GroupInvitePage() {
     if (currentGroup) {
       intervalId = setInterval(() => {
         refreshGroup()
-      }, 1000) // Check every 1 seconds
+      }, 5000) // Check every 5 seconds
     }
 
     return () => {
@@ -205,13 +205,13 @@ export default function GroupInvitePage() {
                       className={`text-xs px-2 py-1 rounded ${
                         participant.status === "waiting"
                           ? "bg-gray-700 text-gray-300"
-                          : participant.status === "ready"
+                          : participant.status === "ranking"
                             ? "bg-yellow-700 text-yellow-200"
                             : "bg-green-700 text-green-200"
                       }`}
                     >
                       {participant.status === "waiting" && "Waiting"}
-                      {participant.status === "ready" && "Ready"}
+                      {participant.status === "ranking" && "Ranking"}
                       {participant.status === "completed" && "Completed"}
                     </span>
                   </div>

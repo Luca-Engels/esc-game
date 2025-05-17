@@ -15,7 +15,7 @@ export default function ResultsPage() {
   const [rankings, setRankings] = useState<number[]>([])
   const [shareDialogOpen, setShareDialogOpen] = useState(false)
   const { toast } = useToast()
-  const { currentGroup, currentUser, addRankingToGroup } = useGroup()
+  const { currentGroup, currentUser, addRankingToGroup,updateParticipantStatus } = useGroup()
 
   // Generate shareable URL for direct link sharing
   const shareUrl =
@@ -27,6 +27,8 @@ export default function ResultsPage() {
   useEffect(() => {
     console.log("ResultsPage: Loading rankings from localStorage")
     const storedRankings = localStorage.getItem("eurovisionRankings")
+    console.log("ResultsPage: Stored rankings:", storedRankings)
+    console.log(currentUser, currentGroup)
 
     if (storedRankings) {
       try {
@@ -36,6 +38,7 @@ export default function ResultsPage() {
 
         // If user is in a group, add their ranking to the group
         if (currentGroup && currentUser) {
+          updateParticipantStatus("completed")
           console.log("ResultsPage: Adding ranking to group", {
             groupId: currentGroup.id,
             userId: currentUser.id,
@@ -48,7 +51,7 @@ export default function ResultsPage() {
     } else {
       console.log("ResultsPage: No rankings found in localStorage")
     }
-  }, [currentGroup, currentUser, addRankingToGroup])
+  },[])
 
   const handleShare = () => {
     console.log("ResultsPage: Opening share dialog")

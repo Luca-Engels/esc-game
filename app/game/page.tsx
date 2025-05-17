@@ -13,7 +13,7 @@ import Link from "next/link"
 
 export default function GamePage() {
   const router = useRouter()
-  const { currentGroup, currentUser, refreshGroup } = useGroup()
+  const { currentGroup, currentUser,updateParticipantStatus, refreshGroup } = useGroup()
   const [pairs, setPairs] = useState<Array<[number, number]>>([])
   const [currentPairIndex, setCurrentPairIndex] = useState(0)
   const [votes, setVotes] = useState<Record<number, number>>({})
@@ -81,6 +81,16 @@ export default function GamePage() {
       return () => clearInterval(intervalId)
     }
   }, [currentGroup, gameStarted, refreshGroup])
+  useEffect(() => {
+    // Check if the user is a participant and update their status
+    if (currentUser) {
+      const participant = currentGroup?.participants.find((p) => p.id === currentUser.id)
+      if (participant && participant.status !== "ranking") {
+        updateParticipantStatus("ranking")
+      }
+    }
+  }, [currentUser, currentGroup, updateParticipantStatus])
+
 
   const initializeGame = () => {
     // Generate all possible pairs of countries

@@ -44,6 +44,7 @@ export async function POST(
 export async function PUT(
     req: NextRequest
 ) {
+    
     const { name, participants, gameStarted,id } = await req.json();
 
     const group = groups.find((g) => g.id === id);
